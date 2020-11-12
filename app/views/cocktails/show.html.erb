@@ -1,0 +1,17 @@
+<h1><%= @cocktail.name %></h1>
+
+<%# TODO: Dose needed for each ingredient %>
+
+<p><% @cocktail.doses.each do |dose| %></p>
+<div class="card">
+  <p class="card-text"><%= dose.description %> <%= dose.ingredient.name%></p>
+  <p><% end %></p>
+</div>
+
+<%= simple_form_for [@cocktail, @dose] do |f| %>
+  <%= f.input :description %>
+  <%= f.association :ingredient %>
+  <%= f.button :submit %>
+<% end %>
+
+<p><%= link_to "Back to cocktails list", cocktails_path %></p>
