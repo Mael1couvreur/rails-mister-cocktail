@@ -4,7 +4,7 @@
 
 <p><% @cocktail.doses.each do |dose| %></p>
 <div class="card">
-  <p class="card-text">exit<%= dose.description %> <%= dose.ingredient.name%></p>
+  <p class="card-text"><%= dose.description %> <%= dose.ingredient.name%></p>
   <i class="far fa-trash-alt"><%= link_to "Remove", dose_path(dose), method: :delete, data: {confirm: "Are you sure?"} %></i>
   <% end %>
 </div>
@@ -13,4 +13,4 @@
 
 <p><%= link_to "Back to cocktails list", root_path %></p>
 
-No route matches [DELETE] "/dose/4"
+
