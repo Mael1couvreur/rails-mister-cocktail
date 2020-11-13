@@ -4,14 +4,11 @@
 
 <p><% @cocktail.doses.each do |dose| %></p>
 <div class="card">
-  <p class="card-text"><%= dose.description %> <%= dose.ingredient.name%></p>
-  <p><% end %></p>
+  <p class="card-text">exit<%= dose.description %> <%= dose.ingredient.name%></p>
+  <i class="far fa-trash-alt"><%= link_to "Remove", dose_path(dose), method: :delete, data: {confirm: "Are you sure?"} %></i>
+  <% end %>
 </div>
 
-<%= simple_form_for [@cocktail, @dose] do |f| %>
-  <%= f.input :description %>
-  <%= f.association :ingredient %>
-  <%= f.button :submit %>
-<% end %>
+<%= render "doses/new_dose_form"%>
 
 <p><%= link_to "Back to cocktails list", cocktails_path %></p>
